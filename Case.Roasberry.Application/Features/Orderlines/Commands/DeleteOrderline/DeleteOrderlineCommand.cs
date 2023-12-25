@@ -4,4 +4,9 @@ namespace Case.Roasberry.Application.Features.Orderlines.Commands.DeleteOrderlin
 public class DeleteOrderlineCommand : IRequest
 {
     public Guid Id { get; set; }
+
+    public DeleteOrderlineCommand(Guid id)
+    {
+        Id = id;
+    }
 }

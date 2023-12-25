@@ -6,7 +6,7 @@ using Case.Roasberry.Core.Entities;
 namespace Case.Roasberry.Application.Features.Products.Shared;
 public class ProductProfile : Profile
 {
-    protected ProductProfile()
+    public ProductProfile()
     {
         CreateMap<Product, ProductDto>().ReverseMap();
         CreateMap<Product, CreateProductCommand>().ReverseMap();

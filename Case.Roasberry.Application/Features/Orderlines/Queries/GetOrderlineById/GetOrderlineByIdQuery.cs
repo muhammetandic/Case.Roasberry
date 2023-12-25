@@ -5,4 +5,9 @@ namespace Case.Roasberry.Application.Features.Orderlines.Queries.GetOrderlineByI
 public class GetOrderlineByIdQuery : IRequest<OrderlineDto>
 {
     public Guid Id { get; set; }
+
+    public GetOrderlineByIdQuery(Guid id)
+    {
+        Id = id;
+    }
 }

@@ -34,7 +34,7 @@ public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEnt
     public async Task<TEntity> InsertAsync(TEntity entity)
     {
         ArgumentNullException.ThrowIfNull(entity);
-
+        entity.Id = Guid.NewGuid();
         _context.Add(entity);
         if (entity is IAuditable auditableEntity)
         {

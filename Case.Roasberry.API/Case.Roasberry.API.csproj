@@ -12,7 +12,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
+    <ProjectReference Include="..\Case.Roasberry.Application\Case.Roasberry.Application.csproj" />
+    <ProjectReference Include="..\Case.Roasberry.Infrastructure\Case.Roasberry.Infrastructure.csproj" />
+    <ProjectReference Include="..\Case.Roasberry.Persistence\Case.Roasberry.Persistence.csproj" />
   </ItemGroup>
 
 </Project>

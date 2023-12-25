@@ -6,6 +6,13 @@ public class ApplicationDbContext : DbContext
 {
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
     {
+        Database.EnsureCreated();
+    }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<Address>().OwnsOne(p => p.InvoiceInfo);
+        base.OnModelCreating(modelBuilder);
     }
 
     public DbSet<Product> Products { get; set; }

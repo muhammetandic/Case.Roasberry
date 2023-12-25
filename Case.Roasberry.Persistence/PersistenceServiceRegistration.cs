@@ -8,7 +8,7 @@ public static class PersistenceServiceRegistration
 {
     public static void AddPersistenceServices(this IServiceCollection services, string? connectionString)
     {
-        services.AddDbContext<ApplicationDbContext>(options => options.UseSqlite(connectionString));
+        services.AddDbContext<ApplicationDbContext>(options => options.UseNpgsql(connectionString));
 
         services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
         services.AddScoped<IAddressRepository, AddressRepository>();

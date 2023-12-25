@@ -38,7 +38,7 @@ public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEnt
         _context.Add(entity);
         if (entity is IAuditable auditableEntity)
         {
-            auditableEntity.CreatedOn = DateTime.Now;
+            auditableEntity.CreatedOn = DateTime.UtcNow;
             auditableEntity.ModifiedOn = null;
         }
         await _context.SaveChangesAsync();
@@ -53,7 +53,7 @@ public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEnt
         updatedEntity.State = EntityState.Modified;
         if (entity is IAuditable auditableEntity)
         {
-            auditableEntity.ModifiedOn = DateTime.Now;
+            auditableEntity.ModifiedOn = DateTime.UtcNow;
             _context.Entry(auditableEntity).Property(x => x.CreatedOn).IsModified = false;
             _context.Entry(auditableEntity).Property(x => x.CreatedBy).IsModified = false;
         }

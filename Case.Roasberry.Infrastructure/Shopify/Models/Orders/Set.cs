@@ -1,11 +1,12 @@
 ﻿using Newtonsoft.Json;
 
 namespace Case.Roasberry.Infrastructure.Shopify.Models.Orders;
-public class PriceSet
+
+public class Set
 {
     [JsonProperty("shop_money")]
-    public Price ShopMoney { get; set; }
+    public Money? ShopMoney { get; set; }
 
     [JsonProperty("presentment_money")]
-    public Price PresentmentMoney { get; set; }
+    public Money? PresentmentMoney { get; set; }
 }

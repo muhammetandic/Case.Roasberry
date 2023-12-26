@@ -1,39 +1,45 @@
-﻿using Case.Roasberry.Infrastructure.Shopify.Models.Shared;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 
 namespace Case.Roasberry.Infrastructure.Shopify.Models.Orders;
-public class ShippingLine : ShopifyObject
+
+public class ShippingLine
 {
+    [JsonProperty("id")]
+    public long Id { get; set; }
+
     [JsonProperty("carrier_identifier")]
-    public string CarrierIdentifier { get; set; }
+    public object? CarrierIdentifier { get; set; }
 
     [JsonProperty("code")]
-    public string Code { get; set; }
-
-    [JsonProperty("phone")]
-    public string Phone { get; set; }
-
-    [JsonProperty("price")]
-    public decimal? Price { get; set; }
+    public object? Code { get; set; }
 
     [JsonProperty("discounted_price")]
-    public decimal? DiscountedPrice { get; set; }
-
-    [JsonProperty("discount_allocations")]
-    public IEnumerable<DiscountAllocation> DiscountAllocations { get; set; }
-
-    [JsonProperty("source")]
-    public string Source { get; set; }
-
-    [JsonProperty("title")]
-    public string Title { get; set; }
-
-    [JsonProperty("tax_lines")]
-    public IEnumerable<TaxLine> TaxLines { get; set; }
-
-    [JsonProperty("price_set")]
-    public PriceSet PriceSet { get; set; }
+    public string? DiscountedPrice { get; set; }
 
     [JsonProperty("discounted_price_set")]
-    public PriceSet DiscountedPriceSet { get; set; }
+    public Set? DiscountedPriceSet { get; set; }
+
+    [JsonProperty("phone")]
+    public object? Phone { get; set; }
+
+    [JsonProperty("price")]
+    public string? Price { get; set; }
+
+    [JsonProperty("price_set")]
+    public Set? PriceSet { get; set; }
+
+    [JsonProperty("requested_fulfillment_service_id")]
+    public object? RequestedFulfillmentServiceId { get; set; }
+
+    [JsonProperty("source")]
+    public string? Source { get; set; }
+
+    [JsonProperty("title")]
+    public string? Title { get; set; }
+
+    [JsonProperty("tax_lines")]
+    public object?[]? TaxLines { get; set; }
+
+    [JsonProperty("discount_allocations")]
+    public object?[]? DiscountAllocations { get; set; }
 }

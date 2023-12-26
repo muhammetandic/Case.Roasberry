@@ -1,4 +1,5 @@
-﻿using Case.Roasberry.Core.Enums;
+﻿using Case.Roasberry.Core.Entities;
+using Case.Roasberry.Core.Enums;
 
 namespace Case.Roasberry.Application.Features.Customers.Shared;
 public class CustomerDto
@@ -10,4 +11,6 @@ public class CustomerDto
     public required string Email { get; set; }
     public Gender? Gender { get; set; }
     public string? Nationality { get; set; }
+
+    public ICollection<Address>? Addresses { get; set; }
 }

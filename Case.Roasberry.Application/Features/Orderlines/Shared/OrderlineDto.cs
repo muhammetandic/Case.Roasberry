@@ -1,4 +1,4 @@
-﻿using Case.Roasberry.Core.Entities;
+﻿using Case.Roasberry.Application.Features.Products.Shared;
 
 namespace Case.Roasberry.Application.Features.Orderlines.Shared;
 public class OrderlineDto
@@ -7,6 +7,5 @@ public class OrderlineDto
     public decimal UnitPrice { get; set; }
     public decimal Discount { get; set; }
 
-    public Product? Product { get; set; }
-    public Order? Order { get; set; }
+    public ProductDto? Product { get; set; }
 }

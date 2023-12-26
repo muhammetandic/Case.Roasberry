@@ -1,63 +1,72 @@
-﻿using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Case.Roasberry.Infrastructure.Shopify.Models.Orders;
 
-public class Customer
+public partial class Customer
 {
-    [JsonProperty("id")]
+    [JsonPropertyName("id")]
     public long Id { get; set; }
 
-    [JsonProperty("email")]
+    [JsonPropertyName("email")]
     public string? Email { get; set; }
 
-    [JsonProperty("created_at")]
-    public object? CreatedAt { get; set; }
+    [JsonPropertyName("accepts_marketing")]
+    public bool AcceptsMarketing { get; set; }
 
-    [JsonProperty("updated_at")]
-    public object? UpdatedAt { get; set; }
+    [JsonPropertyName("created_at")]
+    public DateTimeOffset CreatedAt { get; set; }
 
-    [JsonProperty("first_name")]
+    [JsonPropertyName("updated_at")]
+    public DateTimeOffset UpdatedAt { get; set; }
+
+    [JsonPropertyName("first_name")]
     public string? FirstName { get; set; }
 
-    [JsonProperty("last_name")]
+    [JsonPropertyName("last_name")]
     public string? LastName { get; set; }
 
-    [JsonProperty("state")]
+    [JsonPropertyName("state")]
     public string? State { get; set; }
 
-    [JsonProperty("note")]
-    public object? Note { get; set; }
+    [JsonPropertyName("note")]
+    public string? Note { get; set; }
 
-    [JsonProperty("verified_email")]
+    [JsonPropertyName("verified_email")]
     public bool VerifiedEmail { get; set; }
 
-    [JsonProperty("multipass_identifier")]
+    [JsonPropertyName("multipass_identifier")]
     public object? MultipassIdentifier { get; set; }
 
-    [JsonProperty("tax_exempt")]
+    [JsonPropertyName("tax_exempt")]
     public bool TaxExempt { get; set; }
 
-    [JsonProperty("phone")]
-    public object? Phone { get; set; }
+    [JsonPropertyName("phone")]
+    public string? Phone { get; set; }
 
-    [JsonProperty("email_marketing_consent")]
-    public EmailMarketingConsent? EmailMarketingConsent { get; set; }
+    [JsonPropertyName("email_marketing_consent")]
+    public MarketingConsent? EmailMarketingConsent { get; set; }
 
-    [JsonProperty("sms_marketing_consent")]
-    public object? SmsMarketingConsent { get; set; }
+    [JsonPropertyName("sms_marketing_consent")]
+    public MarketingConsent? SmsMarketingConsent { get; set; }
 
-    [JsonProperty("tags")]
+    [JsonPropertyName("tags")]
     public string? Tags { get; set; }
 
-    [JsonProperty("currency")]
+    [JsonPropertyName("currency")]
     public string? Currency { get; set; }
 
-    [JsonProperty("tax_exemptions")]
+    [JsonPropertyName("accepts_marketing_updated_at")]
+    public DateTimeOffset AcceptsMarketingUpdatedAt { get; set; }
+
+    [JsonPropertyName("marketing_opt_in_level")]
+    public object? MarketingOptInLevel { get; set; }
+
+    [JsonPropertyName("tax_exemptions")]
     public object?[]? TaxExemptions { get; set; }
 
-    [JsonProperty("admin_graphql_api_id")]
+    [JsonPropertyName("admin_graphql_api_id")]
     public string? AdminGraphqlApiId { get; set; }
 
-    [JsonProperty("default_address")]
+    [JsonPropertyName("default_address")]
     public Address? DefaultAddress { get; set; }
 }

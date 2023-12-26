@@ -1,93 +1,87 @@
-﻿using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Case.Roasberry.Infrastructure.Shopify.Models.Orders;
 
-public class LineItem
+public partial class LineItem
 {
-    [JsonProperty("id")]
+    [JsonPropertyName("id")]
     public long Id { get; set; }
 
-    [JsonProperty("admin_graphql_api_id")]
+    [JsonPropertyName("admin_graphql_api_id")]
     public string? AdminGraphqlApiId { get; set; }
 
-    [JsonProperty("attributed_staffs")]
-    public AttributedStaff[]? AttributedStaffs { get; set; }
-
-    [JsonProperty("current_quantity")]
-    public long CurrentQuantity { get; set; }
-
-    [JsonProperty("fulfillable_quantity")]
+    [JsonPropertyName("fulfillable_quantity")]
     public long FulfillableQuantity { get; set; }
 
-    [JsonProperty("fulfillment_service")]
+    [JsonPropertyName("fulfillment_service")]
     public string? FulfillmentService { get; set; }
 
-    [JsonProperty("fulfillment_status")]
+    [JsonPropertyName("fulfillment_status")]
     public object? FulfillmentStatus { get; set; }
 
-    [JsonProperty("gift_card")]
+    [JsonPropertyName("gift_card")]
     public bool GiftCard { get; set; }
 
-    [JsonProperty("grams")]
+    [JsonPropertyName("grams")]
     public long Grams { get; set; }
 
-    [JsonProperty("name")]
+    [JsonPropertyName("name")]
     public string? Name { get; set; }
 
-    [JsonProperty("price")]
-    public string? Price { get; set; }
+    [JsonPropertyName("price")]
+    public decimal? Price { get; set; }
 
-    [JsonProperty("price_set")]
+    [JsonPropertyName("price_set")]
     public Set? PriceSet { get; set; }
 
-    [JsonProperty("product_exists")]
+    [JsonPropertyName("product_exists")]
     public bool ProductExists { get; set; }
 
-    [JsonProperty("product_id")]
+    [JsonPropertyName("product_id")]
     public long ProductId { get; set; }
 
-    [JsonProperty("properties")]
+    [JsonPropertyName("properties")]
     public object?[]? Properties { get; set; }
 
-    [JsonProperty("quantity")]
-    public long Quantity { get; set; }
+    [JsonPropertyName("quantity")]
+    public ulong Quantity { get; set; }
 
-    [JsonProperty("requires_shipping")]
+    [JsonPropertyName("requires_shipping")]
     public bool RequiresShipping { get; set; }
 
-    [JsonProperty("sku")]
+    [JsonPropertyName("sku")]
     public string? Sku { get; set; }
 
-    [JsonProperty("taxable")]
+    [JsonPropertyName("taxable")]
     public bool Taxable { get; set; }
 
-    [JsonProperty("title")]
+    [JsonPropertyName("title")]
     public string? Title { get; set; }
 
-    [JsonProperty("total_discount")]
-    public string? TotalDiscount { get; set; }
+    [JsonPropertyName("total_discount")]
+    public decimal? TotalDiscount { get; set; }
 
-    [JsonProperty("total_discount_set")]
+    [JsonPropertyName("total_discount_set")]
     public Set? TotalDiscountSet { get; set; }
 
-    [JsonProperty("variant_id")]
+    [JsonPropertyName("variant_id")]
     public long VariantId { get; set; }
 
-    [JsonProperty("variant_inventory_management")]
+    [JsonPropertyName("variant_inventory_management")]
     public string? VariantInventoryManagement { get; set; }
 
-    [JsonProperty("variant_title")]
+    [JsonPropertyName("variant_title")]
     public object? VariantTitle { get; set; }
 
-    [JsonProperty("vendor")]
-    public object? Vendor { get; set; }
+    [JsonPropertyName("vendor")]
+    public string? Vendor { get; set; }
 
-    [JsonProperty("tax_lines")]
+    [JsonPropertyName("tax_lines")]
     public object?[]? TaxLines { get; set; }
 
-    [JsonProperty("duties")]
+    [JsonPropertyName("duties")]
     public object?[]? Duties { get; set; }
 
-    [JsonProperty("discount_allocations")]
+    [JsonPropertyName("discount_allocations")]
     public object?[]? DiscountAllocations { get; set; }
 }

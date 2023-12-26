@@ -1,7 +1,6 @@
 ﻿using Case.Roasberry.Infrastructure.Shopify.Constants;
 using Microsoft.Extensions.Options;
-using Newtonsoft.Json;
-using System.Net.Http.Json;
+using System.Text.Json;
 
 namespace Case.Roasberry.Infrastructure.Shopify;
 public class ShopifyProxy : IShopifyProxy
@@ -22,7 +21,7 @@ public class ShopifyProxy : IShopifyProxy
     {
         var result = await _client.GetAsync(url);
         var str = await result.Content.ReadAsStringAsync();
-        var rst = JsonConvert.DeserializeObject<T>(str);
+        var rst = JsonSerializer.Deserialize<T>(str);
         return rst;
     }
 

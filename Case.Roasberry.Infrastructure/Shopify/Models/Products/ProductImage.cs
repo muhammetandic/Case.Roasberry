@@ -1,42 +1,43 @@
 ﻿using Case.Roasberry.Infrastructure.Shopify.Models.Shared;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Case.Roasberry.Infrastructure.Shopify.Models.Products;
 public class ProductImage : ShopifyObject
 {
-    [JsonProperty("product_id")]
+    [JsonPropertyName("product_id")]
     public long? ProductId { get; set; }
 
-    [JsonProperty("position")]
+    [JsonPropertyName("position")]
     public int? Position { get; set; }
 
-    [JsonProperty("created_at")]
+    [JsonPropertyName("created_at")]
     public DateTimeOffset? CreatedAt { get; set; }
 
-    [JsonProperty("updated_at")]
+    [JsonPropertyName("updated_at")]
     public DateTimeOffset? UpdatedAt { get; set; }
 
-    [JsonProperty("src")]
-    public string Src { get; set; }
+    [JsonPropertyName("src")]
+    public string? Src { get; set; }
 
-    [JsonProperty("filename", DefaultValueHandling = DefaultValueHandling.Ignore)]
-    public string Filename { get; set; }
+    [JsonPropertyName("filename")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    public string? Filename { get; set; }
 
-    [JsonProperty("attachment")]
-    public string Attachment { get; set; }
+    [JsonPropertyName("attachment")]
+    public string? Attachment { get; set; }
 
-    [JsonProperty("variant_ids")]
-    public IEnumerable<long> VariantIds { get; set; }
+    [JsonPropertyName("variant_ids")]
+    public IEnumerable<long>? VariantIds { get; set; }
 
-    [JsonProperty("height")]
+    [JsonPropertyName("height")]
     public int? Height { get; set; }
 
-    [JsonProperty("width")]
+    [JsonPropertyName("width")]
     public int? Width { get; set; }
 
-    [JsonProperty("alt")]
-    public string Alt { get; set; }
+    [JsonPropertyName("alt")]
+    public string? Alt { get; set; }
 
-    [JsonProperty("metafields")]
-    public IEnumerable<MetaField> Metafields { get; set; }
+    [JsonPropertyName("metafields")]
+    public IEnumerable<MetaField>? Metafields { get; set; }
 }

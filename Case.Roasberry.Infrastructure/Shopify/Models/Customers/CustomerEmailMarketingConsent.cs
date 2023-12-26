@@ -1,15 +1,14 @@
-﻿using Case.Roasberry.Infrastructure.Shopify.Models.Shared;
-using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
 namespace Case.Roasberry.Infrastructure.Shopify.Models.Customers;
 public class CustomerEmailMarketingConsent
 {
-    [JsonProperty("state")]
-    public string State { get; set; }
+    [JsonPropertyName("state")]
+    public string? State { get; set; }
 
-    [JsonProperty("opt_in_level")]
-    public string OptInLevel { get; set; }
+    [JsonPropertyName("opt_in_level")]
+    public string? OptInLevel { get; set; }
 
-    [JsonProperty("consent_updated_at")]
+    [JsonPropertyName("consent_updated_at")]
     public DateTimeOffset? ConsentUpdatedAt { get; set; }
 }

@@ -1,8 +1,6 @@
 ﻿using AutoMapper;
 using Case.Roasberry.Application.Contracts.Persistence;
 using Case.Roasberry.Application.Exceptions;
-using Case.Roasberry.Application.Features.Customers.Commands.CreateCustomer;
-using Case.Roasberry.Application.Features.Customers.Shared;
 using Case.Roasberry.Application.Features.Orders.Shared;
 using Case.Roasberry.Core.Entities;
 using MediatR;

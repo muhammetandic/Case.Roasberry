@@ -1,7 +1,8 @@
-﻿using System.Text.Json.Serialization;
+using System.Text.Json.Serialization;
 
-namespace Case.Roasberry.Infrastructure.Shopify.Models.Customers;
-public class CustomerSmsMarketingConsent
+namespace Case.Roasberry.Infrastructure.Shopify.Models.Orders;
+
+public partial class MarketingConsent
 {
     [JsonPropertyName("state")]
     public string? State { get; set; }
@@ -10,8 +11,9 @@ public class CustomerSmsMarketingConsent
     public string? OptInLevel { get; set; }
 
     [JsonPropertyName("consent_updated_at")]
-    public DateTimeOffset? ConsentUpdatedAt { get; set; }
+    public object? ConsentUpdatedAt { get; set; }
 
     [JsonPropertyName("consent_collected_from")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     public string? ConsentCollectedFrom { get; set; }
 }

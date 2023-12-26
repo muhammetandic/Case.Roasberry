@@ -1,63 +1,67 @@
-﻿using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Case.Roasberry.Infrastructure.Shopify.Models.Orders;
 
-public class Address
+public partial class Address
 {
-    [JsonProperty("first_name")]
+    [JsonPropertyName("first_name")]
     public string? FirstName { get; set; }
 
-    [JsonProperty("address1")]
+    [JsonPropertyName("address1")]
     public string? Address1 { get; set; }
 
-    [JsonProperty("phone")]
-    public string? Phone { get; set; }
+    [JsonPropertyName("phone")]
+    public object? Phone { get; set; }
 
-    [JsonProperty("city")]
+    [JsonPropertyName("city")]
     public string? City { get; set; }
 
-    [JsonProperty("zip")]
+    [JsonPropertyName("zip")]
     public string? Zip { get; set; }
 
-    [JsonProperty("province")]
+    [JsonPropertyName("province")]
     public string? Province { get; set; }
 
-    [JsonProperty("country")]
+    [JsonPropertyName("country")]
     public string? Country { get; set; }
 
-    [JsonProperty("last_name")]
+    [JsonPropertyName("last_name")]
     public string? LastName { get; set; }
 
-    [JsonProperty("address2")]
+    [JsonPropertyName("address2")]
     public object? Address2 { get; set; }
 
-    [JsonProperty("company")]
+    [JsonPropertyName("company")]
     public string? Company { get; set; }
 
-    [JsonProperty("latitude")]
+    [JsonPropertyName("latitude")]
     public object? Latitude { get; set; }
 
-    [JsonProperty("longitude")]
+    [JsonPropertyName("longitude")]
     public object? Longitude { get; set; }
 
-    [JsonProperty("name")]
+    [JsonPropertyName("name")]
     public string? Name { get; set; }
 
-    [JsonProperty("country_code")]
+    [JsonPropertyName("country_code")]
     public string? CountryCode { get; set; }
 
-    [JsonProperty("province_code")]
+    [JsonPropertyName("province_code")]
     public string? ProvinceCode { get; set; }
 
-    [JsonProperty("id", NullValueHandling = NullValueHandling.Ignore)]
+    [JsonPropertyName("id")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     public long? Id { get; set; }
 
-    [JsonProperty("customer_id", NullValueHandling = NullValueHandling.Ignore)]
+    [JsonPropertyName("customer_id")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     public long? CustomerId { get; set; }
 
-    [JsonProperty("country_name", NullValueHandling = NullValueHandling.Ignore)]
+    [JsonPropertyName("country_name")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     public string? CountryName { get; set; }
 
-    [JsonProperty("default", NullValueHandling = NullValueHandling.Ignore)]
+    [JsonPropertyName("default")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     public bool? Default { get; set; }
 }

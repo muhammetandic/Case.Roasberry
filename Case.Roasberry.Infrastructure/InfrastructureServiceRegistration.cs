@@ -12,5 +12,6 @@ public static class InfrastructureServiceRegistration
         services.AddHttpClient();
         services.AddScoped<IShopifyProxy, ShopifyProxy>();
         services.AddScoped<IShopifyClient, ShopifyClient>();
+        services.AddScoped<IOrderService, OrderService>();
     }
 }

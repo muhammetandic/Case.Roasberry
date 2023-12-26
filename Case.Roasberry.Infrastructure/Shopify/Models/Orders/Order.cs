@@ -1,270 +1,262 @@
-using Newtonsoft.Json;
+using Case.Roasberry.Infrastructure.Shopify.Models.Shared;
+using System.Text.Json.Serialization;
 
 namespace Case.Roasberry.Infrastructure.Shopify.Models.Orders;
 
 public class Order
 {
-    [JsonProperty("id")]
+    [JsonPropertyName("id")]
     public long Id { get; set; }
 
-    [JsonProperty("admin_graphql_api_id")]
+    [JsonPropertyName("admin_graphql_api_id")]
     public string? AdminGraphqlApiId { get; set; }
 
-    [JsonProperty("app_id")]
-    public object? AppId { get; set; }
+    [JsonPropertyName("app_id")]
+    public long AppId { get; set; }
 
-    [JsonProperty("browser_ip")]
-    public object? BrowserIp { get; set; }
+    [JsonPropertyName("browser_ip")]
+    public string? BrowserIp { get; set; }
 
-    [JsonProperty("buyer_accepts_marketing")]
+    [JsonPropertyName("buyer_accepts_marketing")]
     public bool BuyerAcceptsMarketing { get; set; }
 
-    [JsonProperty("cancel_reason")]
-    public string? CancelReason { get; set; }
+    [JsonPropertyName("cancel_reason")]
+    public object? CancelReason { get; set; }
 
-    [JsonProperty("cancelled_at")]
-    public DateTimeOffset CancelledAt { get; set; }
+    [JsonPropertyName("cancelled_at")]
+    public object? CancelledAt { get; set; }
 
-    [JsonProperty("cart_token")]
+    [JsonPropertyName("cart_token")]
     public object? CartToken { get; set; }
 
-    [JsonProperty("checkout_id")]
-    public object? CheckoutId { get; set; }
+    [JsonPropertyName("checkout_id")]
+    public long CheckoutId { get; set; }
 
-    [JsonProperty("checkout_token")]
-    public object? CheckoutToken { get; set; }
+    [JsonPropertyName("checkout_token")]
+    public string? CheckoutToken { get; set; }
 
-    [JsonProperty("client_details")]
-    public object? ClientDetails { get; set; }
+    [JsonPropertyName("client_details")]
+    public ClientDetails? ClientDetails { get; set; }
 
-    [JsonProperty("closed_at")]
+    [JsonPropertyName("closed_at")]
     public object? ClosedAt { get; set; }
 
-    [JsonProperty("company")]
+    [JsonPropertyName("company")]
     public object? Company { get; set; }
 
-    [JsonProperty("confirmation_number")]
-    public object? ConfirmationNumber { get; set; }
-
-    [JsonProperty("confirmed")]
+    [JsonPropertyName("confirmed")]
     public bool Confirmed { get; set; }
 
-    [JsonProperty("contact_email")]
+    [JsonPropertyName("contact_email")]
     public string? ContactEmail { get; set; }
 
-    [JsonProperty("created_at")]
+    [JsonPropertyName("created_at")]
     public DateTimeOffset CreatedAt { get; set; }
 
-    [JsonProperty("currency")]
+    [JsonPropertyName("currency")]
     public string? Currency { get; set; }
 
-    [JsonProperty("current_subtotal_price")]
-    public string? CurrentSubtotalPrice { get; set; }
+    [JsonPropertyName("current_subtotal_price")]
+    public decimal CurrentSubtotalPrice { get; set; }
 
-    [JsonProperty("current_subtotal_price_set")]
+    [JsonPropertyName("current_subtotal_price_set")]
     public Set? CurrentSubtotalPriceSet { get; set; }
 
-    [JsonProperty("current_total_additional_fees_set")]
-    public object? CurrentTotalAdditionalFeesSet { get; set; }
+    [JsonPropertyName("current_total_discounts")]
+    public decimal? CurrentTotalDiscounts { get; set; }
 
-    [JsonProperty("current_total_discounts")]
-    public string? CurrentTotalDiscounts { get; set; }
-
-    [JsonProperty("current_total_discounts_set")]
+    [JsonPropertyName("current_total_discounts_set")]
     public Set? CurrentTotalDiscountsSet { get; set; }
 
-    [JsonProperty("current_total_duties_set")]
+    [JsonPropertyName("current_total_duties_set")]
     public object? CurrentTotalDutiesSet { get; set; }
 
-    [JsonProperty("current_total_price")]
-    public string? CurrentTotalPrice { get; set; }
+    [JsonPropertyName("current_total_price")]
+    public decimal? CurrentTotalPrice { get; set; }
 
-    [JsonProperty("current_total_price_set")]
+    [JsonPropertyName("current_total_price_set")]
     public Set? CurrentTotalPriceSet { get; set; }
 
-    [JsonProperty("current_total_tax")]
-    public string? CurrentTotalTax { get; set; }
+    [JsonPropertyName("current_total_tax")]
+    public decimal? CurrentTotalTax { get; set; }
 
-    [JsonProperty("current_total_tax_set")]
+    [JsonPropertyName("current_total_tax_set")]
     public Set? CurrentTotalTaxSet { get; set; }
 
-    [JsonProperty("customer_locale")]
+    [JsonPropertyName("customer_locale")]
     public string? CustomerLocale { get; set; }
 
-    [JsonProperty("device_id")]
+    [JsonPropertyName("device_id")]
     public object? DeviceId { get; set; }
 
-    [JsonProperty("discount_codes")]
+    [JsonPropertyName("discount_codes")]
     public object?[]? DiscountCodes { get; set; }
 
-    [JsonProperty("email")]
+    [JsonPropertyName("email")]
     public string? Email { get; set; }
 
-    [JsonProperty("estimated_taxes")]
+    [JsonPropertyName("estimated_taxes")]
     public bool EstimatedTaxes { get; set; }
 
-    [JsonProperty("financial_status")]
+    [JsonPropertyName("financial_status")]
     public string? FinancialStatus { get; set; }
 
-    [JsonProperty("fulfillment_status")]
-    public string? FulfillmentStatus { get; set; }
+    [JsonPropertyName("fulfillment_status")]
+    public object? FulfillmentStatus { get; set; }
 
-    [JsonProperty("landing_site")]
+    [JsonPropertyName("gateway")]
+    public string? Gateway { get; set; }
+
+    [JsonPropertyName("landing_site")]
     public object? LandingSite { get; set; }
 
-    [JsonProperty("landing_site_ref")]
+    [JsonPropertyName("landing_site_ref")]
     public object? LandingSiteRef { get; set; }
 
-    [JsonProperty("location_id")]
+    [JsonPropertyName("location_id")]
     public object? LocationId { get; set; }
 
-    [JsonProperty("merchant_of_record_app_id")]
+    [JsonPropertyName("merchant_of_record_app_id")]
     public object? MerchantOfRecordAppId { get; set; }
 
-    [JsonProperty("name")]
+    [JsonPropertyName("name")]
     public string? Name { get; set; }
 
-    [JsonProperty("note")]
-    public object? Note { get; set; }
+    [JsonPropertyName("note")]
+    public string? Note { get; set; }
 
-    [JsonProperty("note_attributes")]
+    [JsonPropertyName("note_attributes")]
     public object?[]? NoteAttributes { get; set; }
 
-    [JsonProperty("number")]
+    [JsonPropertyName("number")]
     public long Number { get; set; }
 
-    [JsonProperty("order_number")]
+    [JsonPropertyName("order_number")]
     public long OrderNumber { get; set; }
 
-    [JsonProperty("order_status_url")]
+    [JsonPropertyName("order_status_url")]
     public Uri? OrderStatusUrl { get; set; }
 
-    [JsonProperty("original_total_additional_fees_set")]
-    public object? OriginalTotalAdditionalFeesSet { get; set; }
-
-    [JsonProperty("original_total_duties_set")]
+    [JsonPropertyName("original_total_duties_set")]
     public object? OriginalTotalDutiesSet { get; set; }
 
-    [JsonProperty("payment_gateway_names")]
+    [JsonPropertyName("payment_gateway_names")]
     public string?[]? PaymentGatewayNames { get; set; }
 
-    [JsonProperty("phone")]
-    public object? Phone { get; set; }
+    [JsonPropertyName("phone")]
+    public string? Phone { get; set; }
 
-    [JsonProperty("po_number")]
-    public object? PoNumber { get; set; }
-
-    [JsonProperty("presentment_currency")]
+    [JsonPropertyName("presentment_currency")]
     public string? PresentmentCurrency { get; set; }
 
-    [JsonProperty("processed_at")]
-    public object? ProcessedAt { get; set; }
+    [JsonPropertyName("processed_at")]
+    public DateTimeOffset ProcessedAt { get; set; }
 
-    [JsonProperty("reference")]
-    public object? Reference { get; set; }
+    [JsonPropertyName("processing_method")]
+    public string? ProcessingMethod { get; set; }
 
-    [JsonProperty("referring_site")]
+    [JsonPropertyName("reference")]
+    public string? Reference { get; set; }
+
+    [JsonPropertyName("referring_site")]
     public object? ReferringSite { get; set; }
 
-    [JsonProperty("source_identifier")]
-    public object? SourceIdentifier { get; set; }
+    [JsonPropertyName("source_identifier")]
+    public string? SourceIdentifier { get; set; }
 
-    [JsonProperty("source_name")]
+    [JsonPropertyName("source_name")]
     public string? SourceName { get; set; }
 
-    [JsonProperty("source_url")]
+    [JsonPropertyName("source_url")]
     public object? SourceUrl { get; set; }
 
-    [JsonProperty("subtotal_price")]
-    public string? SubtotalPrice { get; set; }
+    [JsonPropertyName("subtotal_price")]
+    public decimal? SubtotalPrice { get; set; }
 
-    [JsonProperty("subtotal_price_set")]
+    [JsonPropertyName("subtotal_price_set")]
     public Set? SubtotalPriceSet { get; set; }
 
-    [JsonProperty("tags")]
+    [JsonPropertyName("tags")]
     public string? Tags { get; set; }
 
-    [JsonProperty("tax_exempt")]
-    public bool TaxExempt { get; set; }
-
-    [JsonProperty("tax_lines")]
+    [JsonPropertyName("tax_lines")]
     public object?[]? TaxLines { get; set; }
 
-    [JsonProperty("taxes_included")]
+    [JsonPropertyName("taxes_included")]
     public bool TaxesIncluded { get; set; }
 
-    [JsonProperty("test")]
+    [JsonPropertyName("test")]
     public bool Test { get; set; }
 
-    [JsonProperty("token")]
+    [JsonPropertyName("token")]
     public string? Token { get; set; }
 
-    [JsonProperty("total_discounts")]
-    public string? TotalDiscounts { get; set; }
+    [JsonPropertyName("total_discounts")]
+    public decimal? TotalDiscounts { get; set; }
 
-    [JsonProperty("total_discounts_set")]
+    [JsonPropertyName("total_discounts_set")]
     public Set? TotalDiscountsSet { get; set; }
 
-    [JsonProperty("total_line_items_price")]
-    public string? TotalLineItemsPrice { get; set; }
+    [JsonPropertyName("total_line_items_price")]
+    public decimal? TotalLineItemsPrice { get; set; }
 
-    [JsonProperty("total_line_items_price_set")]
+    [JsonPropertyName("total_line_items_price_set")]
     public Set? TotalLineItemsPriceSet { get; set; }
 
-    [JsonProperty("total_outstanding")]
-    public string? TotalOutstanding { get; set; }
+    [JsonPropertyName("total_outstanding")]
+    public decimal? TotalOutstanding { get; set; }
 
-    [JsonProperty("total_price")]
-    public string? TotalPrice { get; set; }
+    [JsonPropertyName("total_price")]
+    public decimal? TotalPrice { get; set; }
 
-    [JsonProperty("total_price_set")]
+    [JsonPropertyName("total_price_set")]
     public Set? TotalPriceSet { get; set; }
 
-    [JsonProperty("total_shipping_price_set")]
+    [JsonPropertyName("total_shipping_price_set")]
     public Set? TotalShippingPriceSet { get; set; }
 
-    [JsonProperty("total_tax")]
-    public string? TotalTax { get; set; }
+    [JsonPropertyName("total_tax")]
+    public decimal? TotalTax { get; set; }
 
-    [JsonProperty("total_tax_set")]
+    [JsonPropertyName("total_tax_set")]
     public Set? TotalTaxSet { get; set; }
 
-    [JsonProperty("total_tip_received")]
+    [JsonPropertyName("total_tip_received")]
     public string? TotalTipReceived { get; set; }
 
-    [JsonProperty("total_weight")]
+    [JsonPropertyName("total_weight")]
     public long TotalWeight { get; set; }
 
-    [JsonProperty("updated_at")]
+    [JsonPropertyName("updated_at")]
     public DateTimeOffset UpdatedAt { get; set; }
 
-    [JsonProperty("user_id")]
-    public object? UserId { get; set; }
+    [JsonPropertyName("user_id")]
+    public long UserId { get; set; }
 
-    [JsonProperty("billing_address")]
+    [JsonPropertyName("billing_address")]
     public Address? BillingAddress { get; set; }
 
-    [JsonProperty("customer")]
+    [JsonPropertyName("customer")]
     public Customer? Customer { get; set; }
 
-    [JsonProperty("discount_applications")]
+    [JsonPropertyName("discount_applications")]
     public object?[]? DiscountApplications { get; set; }
 
-    [JsonProperty("fulfillments")]
+    [JsonPropertyName("fulfillments")]
     public object?[]? Fulfillments { get; set; }
 
-    [JsonProperty("line_items")]
+    [JsonPropertyName("line_items")]
     public LineItem[]? LineItems { get; set; }
 
-    [JsonProperty("payment_terms")]
+    [JsonPropertyName("payment_terms")]
     public object? PaymentTerms { get; set; }
 
-    [JsonProperty("refunds")]
+    [JsonPropertyName("refunds")]
     public object?[]? Refunds { get; set; }
 
-    [JsonProperty("shipping_address")]
+    [JsonPropertyName("shipping_address")]
     public Address? ShippingAddress { get; set; }
 
-    [JsonProperty("shipping_lines")]
-    public ShippingLine[]? ShippingLines { get; set; }
+    [JsonPropertyName("shipping_lines")]
+    public object?[]? ShippingLines { get; set; }
 }

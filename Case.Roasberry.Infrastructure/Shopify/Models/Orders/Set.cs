@@ -1,12 +1,12 @@
-﻿using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Case.Roasberry.Infrastructure.Shopify.Models.Orders;
 
-public class Set
+public partial class Set
 {
-    [JsonProperty("shop_money")]
+    [JsonPropertyName("shop_money")]
     public Money? ShopMoney { get; set; }
 
-    [JsonProperty("presentment_money")]
+    [JsonPropertyName("presentment_money")]
     public Money? PresentmentMoney { get; set; }
 }

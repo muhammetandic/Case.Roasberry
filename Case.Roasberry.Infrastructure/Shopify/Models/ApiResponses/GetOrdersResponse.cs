@@ -1,9 +1,9 @@
 ﻿using Case.Roasberry.Infrastructure.Shopify.Models.Orders;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Case.Roasberry.Infrastructure.Shopify.Models.ApiResponses;
 public class GetOrdersResponse
 {
-    [JsonProperty("orders")]
-    public List<Order> Orders { get; set; }
+    [JsonPropertyName("orders")]
+    public List<Order>? Orders { get; set; }
 }

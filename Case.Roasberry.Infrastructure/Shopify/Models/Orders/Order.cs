@@ -1,7 +1,6 @@
 ﻿using Case.Roasberry.Infrastructure.Shopify.Models.Customers;
 using Case.Roasberry.Infrastructure.Shopify.Models.Shared;
 using Newtonsoft.Json;
-using System.Transactions;
 
 namespace Case.Roasberry.Infrastructure.Shopify.Models.Orders;
 public class Order : ShopifyObject

@@ -1,6 +1,7 @@
 ﻿using Case.Roasberry.Application.Features.Products.Commands.CreateProduct;
 using Case.Roasberry.Infrastructure.Shopify;
 using Case.Roasberry.Infrastructure.Shopify.Models.ApiResponses;
+using Case.Roasberry.Infrastructure.Shopify.Models.Orders;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
@@ -32,7 +33,7 @@ public class ShopifyController : ControllerBase
     }
 
     [HttpPost("order-webhook")]
-    public async Task SaveOrders([FromBody] object ordersData)
+    public async Task SaveOrders([FromBody] Order ordersData)
     {
         var product = new CreateProductCommand()
         {

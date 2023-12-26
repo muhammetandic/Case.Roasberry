@@ -1,6 +1,5 @@
-﻿using Case.Roasberry.Application.Features.Addresses.Shared;
+﻿using Case.Roasberry.Application.Features.Addresses.Commands.CreateAddress;
 using Case.Roasberry.Application.Features.Customers.Commands.CreateCustomer;
-using Case.Roasberry.Application.Features.Customers.Shared;
 using Case.Roasberry.Application.Features.Orderlines.Shared;
 using Case.Roasberry.Application.Features.Orders.Commands.CreateOrder;
 using Case.Roasberry.Application.Features.Products.Shared;
@@ -26,27 +25,31 @@ public class OrderService : IOrderService
             LastName = order.Customer?.LastName ?? "",
             Phone = order.Customer?.Phone ?? "",
             Nationality = order.Customer?.State ?? "",
-            Addresses = new List<AddressDto>()
-            {
-                new AddressDto()
-                {
-                    Country = order.BillingAddress?.CountryName,
-                    City = order.BillingAddress?.City,
-                    District = order.BillingAddress?.Province,
-                    PostalCode = order.BillingAddress?.Zip,
-                    AddressLine = order.BillingAddress?.Address1,
-                },
-                new AddressDto()
-                {
-                    Country = order.ShippingAddress?.CountryName,
-                    City = order.ShippingAddress?.City,
-                    District = order.ShippingAddress?.Province,
-                    PostalCode = order.ShippingAddress?.Zip,
-                    AddressLine = order.ShippingAddress?.Address1,
-                }
-            }
         };
         var customer = await _mediator.Send(customerToCreate);
+
+        var invoiceAddressToCreate = new CreateAddressCommand()
+        {
+            Country = order.BillingAddress?.CountryName,
+            City = order.BillingAddress?.City ?? "",
+            District = order.BillingAddress?.Province ?? "",
+            PostalCode = order.BillingAddress?.Zip,
+            AddressLine = order.BillingAddress?.Address1 ?? "",
+            CustomerId = customer.Id,
+        };
+        var invoiceAddress = await _mediator.Send(invoiceAddressToCreate);
+
+        var shippingAddressToCreate = new CreateAddressCommand()
+        {
+            Country = order.ShippingAddress?.CountryName,
+            City = order.ShippingAddress?.City ?? "",
+            District = order.ShippingAddress?.Province ?? "",
+            PostalCode = order.ShippingAddress?.Zip,
+            AddressLine = order.ShippingAddress?.Address1 ?? "",
+            CustomerId = customer.Id,
+        };
+        var shippingAddress = await _mediator.Send(shippingAddressToCreate);
+
         var orderToCreate = new CreateOrderCommand()
         {
             OrderNumber = order.OrderNumber.ToString(),
@@ -55,8 +58,8 @@ public class OrderService : IOrderService
             TotalDiscount = order.TotalDiscounts ?? 0,
             LastPrice = order.TotalPrice ?? 0 - order.TotalDiscounts ?? 0,
             CustomerId = customer.Id,
-            InvoiceAddressId = customer.Addresses.FirstOrDefault().Id,
-            ShippingAddressId = customer.Addresses.LastOrDefault().Id,
+            InvoiceAddressId = invoiceAddress.Id,
+            ShippingAddressId = shippingAddress.Id,
             Orderlines = new List<OrderlineDto>()
         };
         if (order.LineItems?.Length > 0)

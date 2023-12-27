@@ -10,7 +10,7 @@ This project created with following tech stack
 
 - ***.Net 8 Web Api***
 - ***Entityframwork Core***
-- ***NpgSql - PostgreSql**
+- ***NpgSql - PostgreSql***
 - ***Clean Architecture***
 - ***CQRS pattern with Mediatr***
 - ***Repository pattern***

@@ -11,5 +11,5 @@ public record CreateAddressCommand : IRequest<AddressDto>
     public required string AddressLine { get; set; }
     public string? PostalCode { get; set; }
     public InvoiceInfo? InvoiceInfo { get; set; }
-    public Guid CustomerId { get; set; }
+    public Guid? CustomerId { get; set; }
 }
